@@ -7,32 +7,30 @@
 
 namespace TT55::Renderer {
 
-    float vertices[] = {
-        // POSITION          /       COLOR
-         0.5f,  0.5f, 0.0f,     1.0f,  0.0f, 0.25f,   // top right
-         0.5f, -0.5f, 0.0f,     0.75f, 0.5f, 0.5f,    // bottom right
-        -0.5f, -0.5f, 0.0f,     0.5f,  1.0f, 0.75f,   // bottom left
-        -0.5f,  0.5f, 0.0f,     0.25f, 0.0f, 1.0f     // top left 
-
-        // POSITION          /       COLOR
-        //  0.0f,  0.5f, 0.0f,     1.0f, 0.0f, 0.0f,   // TOP
-        //  0.5f, -0.5f, 0.0f,     0.0f, 1.0f, 0.0f,   // BOTTOM RIGHT
-        // -0.5f, -0.5f, 0.0f,     0.0f, 0.0f, 1.0f    // BOTTOM LEFT
+    float vertices[2][64] = {
+        {
+            // POSITION          /       COLOR
+             0.5f,  0.5f, 0.0f,     1.0f,  0.0f, 0.25f,   // top right
+             0.5f, -0.5f, 0.0f,     0.75f, 0.5f, 0.5f,    // bottom right
+            -0.5f, -0.5f, 0.0f,     0.5f,  1.0f, 0.75f,   // bottom left
+            -0.5f,  0.5f, 0.0f,     0.25f, 0.0f, 1.0f     // top left 
+        },
+        {
+            // POSITION          /       COLOR
+             0.0f  - 0.5f,  0.25f, 0.0f,     1.0f, 0.0f, 0.0f,   // TOP
+             0.25f - 0.5f, -0.25f, 0.0f,     0.0f, 1.0f, 0.0f,   // BOTTOM RIGHT
+            -0.25f - 0.5f, -0.25f, 0.0f,     0.0f, 0.0f, 1.0f    // BOTTOM LEFT
+        }
     };
 
-    float vertices_1[] = {
-        // POSITION          /       COLOR
-         0.0f,  0.5f, 0.0f,     1.0f, 0.0f, 0.0f,   // TOP
-         0.5f, -0.5f, 0.0f,     0.0f, 1.0f, 0.0f,   // BOTTOM RIGHT
-        -0.5f, -0.5f, 0.0f,     0.0f, 0.0f, 1.0f    // BOTTOM LEFT
-    };
-
-    GLuint indices[] = {
-        0, 1, 3,
-        1, 2, 3
-    };
-    GLuint indices_1[] = {
-        0, 1, 2
+    GLuint indices[2][6] = {
+        {
+            0, 1, 3,
+            1, 2, 3,
+        },
+        {
+            0, 1, 2,
+        }
     };
 
 
@@ -48,8 +46,8 @@ namespace TT55::Renderer {
         VAO vao;
         vao.Bind();
 
-        VBO vbo(vertices, sizeof(vertices));
-        EBO ebo(indices, sizeof(indices));
+        VBO vbo(vertices[0], sizeof(vertices));
+        EBO ebo(indices[0], sizeof(indices));
 
         vao.LinkVBO(vbo, 0, 3, GL_FLOAT, 6 * sizeof(float), (void*)0);
         vao.LinkVBO(vbo, 1, 3, GL_FLOAT, 6 * sizeof(float), (void*)(3 * sizeof(float)));
@@ -60,11 +58,11 @@ namespace TT55::Renderer {
         VAO vao_1;
         vao_1.Bind();
 
-        VBO vbo_1(vertices_1, sizeof(vertices_1));
-        EBO ebo_1(indices_1, sizeof(indices_1));
+        VBO vbo_1(vertices[1], sizeof(vertices[1]));
+        EBO ebo_1(indices[1], sizeof(indices[1]));
 
-        vao_1.LinkVBO(vbo, 0, 3, GL_FLOAT, 6 * sizeof(float), (void*)0);
-        vao_1.LinkVBO(vbo, 1, 3, GL_FLOAT, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+        vao_1.LinkVBO(vbo_1, 0, 3, GL_FLOAT, 6 * sizeof(float), (void*)0);
+        vao_1.LinkVBO(vbo_1, 1, 3, GL_FLOAT, 6 * sizeof(float), (void*)(3 * sizeof(float)));
         vao_1.Unbind();
         vbo_1.Unbind();
         ebo_1.Unbind();
@@ -120,11 +118,14 @@ namespace TT55::Renderer {
         glUniform1f(u_scale_location, u_scale);
 
         
-        // vaos[0].Bind();
+        vaos[0].Bind();
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+        vaos[0].Unbind();
+        
         vaos[1].Bind();
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-        glBindVertexArray(0);
-
+        vaos[1].Unbind();
+        
 
     }
 
