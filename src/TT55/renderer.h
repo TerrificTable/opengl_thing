@@ -20,14 +20,24 @@ namespace TT55::Renderer {
         // -0.5f, -0.5f, 0.0f,     0.0f, 0.0f, 1.0f    // BOTTOM LEFT
     };
 
+    float vertices_1[] = {
+        // POSITION          /       COLOR
+         0.0f,  0.5f, 0.0f,     1.0f, 0.0f, 0.0f,   // TOP
+         0.5f, -0.5f, 0.0f,     0.0f, 1.0f, 0.0f,   // BOTTOM RIGHT
+        -0.5f, -0.5f, 0.0f,     0.0f, 0.0f, 1.0f    // BOTTOM LEFT
+    };
+
     GLuint indices[] = {
         0, 1, 3,
         1, 2, 3
     };
+    GLuint indices_1[] = {
+        0, 1, 2
+    };
 
 
 
-    void render(GLFWwindow*, int, VAO);
+    void render(GLFWwindow*, int, VAO[]);
 
 
     void renderLoop(TT55::Window_s Window) {
@@ -47,9 +57,19 @@ namespace TT55::Renderer {
         vbo.Unbind();
         ebo.Unbind();
 
+        VAO vao_1;
+        vao_1.Bind();
 
-        // uncomment this call to draw in wireframe polygons.
-        //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+        VBO vbo_1(vertices_1, sizeof(vertices_1));
+        EBO ebo_1(indices_1, sizeof(indices_1));
+
+        vao_1.LinkVBO(vbo, 0, 3, GL_FLOAT, 6 * sizeof(float), (void*)0);
+        vao_1.LinkVBO(vbo, 1, 3, GL_FLOAT, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+        vao_1.Unbind();
+        vbo_1.Unbind();
+        ebo_1.Unbind();
+
+
 
 
         while (!glfwWindowShouldClose(window)) {
@@ -57,8 +77,12 @@ namespace TT55::Renderer {
             TT55::Listeners::processInputListener(window);
 
 
+            VAO vaos[] = {
+                vao, vao_1
+            };
+
             // === RENDERING === //
-            render(window, TT55::Window.programID, vao);
+            render(window, TT55::Window.programID, vaos);
             // === RENDERING === //
 
 
@@ -71,9 +95,13 @@ namespace TT55::Renderer {
         vbo.Delete();
         ebo.Delete();
     
+        vao_1.Delete();
+        vbo_1.Delete();
+        ebo_1.Delete();
+
     }
 
-    void render(GLFWwindow* window, int programID, VAO vao) {
+    void render(GLFWwindow* window, int programID, VAO vaos[]) {
 
         TT55::Window.wireframe_toggle_time++;
 
@@ -92,7 +120,8 @@ namespace TT55::Renderer {
         glUniform1f(u_scale_location, u_scale);
 
         
-        vao.Bind();
+        // vaos[0].Bind();
+        vaos[1].Bind();
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
         glBindVertexArray(0);
 
