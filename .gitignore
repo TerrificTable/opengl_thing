@@ -1,5 +1,2 @@
-/Makefile
-/include
-/lib
-/out
-/src
+
+.env
