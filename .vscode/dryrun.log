@@ -1,4 +1,4 @@
-make build --dry-run --keep-going --print-directory
+make build --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/terrific/Desktop/opengl_thing'
 echo " [ Building ] "
 g++ -Iinclude/ src/TT55/EBO/EBO.cpp src/TT55/VBO/VBO.cpp src/TT55/VAO/VAO.cpp out/libs/glad.o src/main.cpp -o out/main lib/libglfw3.a -lGL -lX11 -lpthread -lXrandr -lXi -ldl

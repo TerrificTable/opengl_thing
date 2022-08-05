@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Aug  4 22:41:47 2022
+# Make data base, printed on Fri Aug  5 13:38:26 2022
 
 # Variables
 
@@ -79,7 +79,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 5295
+VSCODE_PID = 1797
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -225,9 +225,9 @@ LC_IDENTIFICATION = en_AG
 
 # Directories
 
-# . (device 33, inode 48795): 8 files, no impossibilities.
+# . (device 39, inode 48795): 12 files, no impossibilities.
 
-# 8 files, no impossibilities in 1 directories.
+# 12 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -279,7 +279,6 @@ build:
 #  Implicit rule search has not been done.
 #  Implicit/static pattern stem: ''
 #  File does not exist.
- 
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # automatic
@@ -321,12 +320,12 @@ build:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 16 / storage = 117 B / avg = 7 B
-# current buf: size = 8162 B / used = 117 B / count = 16 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 20 / storage = 153 B / avg = 7 B
+# current buf: size = 8162 B / used = 153 B / count = 20 / avg = 7 B
 
-# strcache performance: lookups = 28 / hit rate = 42%
+# strcache performance: lookups = 32 / hit rate = 37%
 # hash-table stats:
-# Load=16/8192=0%, Rehash=0, Collisions=0/28=0%
-# Finished Make data base on Thu Aug  4 22:41:47 2022
+# Load=20/8192=0%, Rehash=0, Collisions=0/32=0%
+# Finished Make data base on Fri Aug  5 13:38:26 2022
 
  
