@@ -23,6 +23,12 @@ void VAO::Unbind() {
     glBindVertexArray(0);
 }
 
+void VAO::Draw(GLenum mode, GLuint cout, GLenum type, const GLvoid* indices) {
+    this,Bind();
+    glDrawElements(mode, cout, type, indices);
+    this->Unbind();
+}
+
 void VAO::Delete() {
     glDeleteVertexArrays(1, &ID);
 }

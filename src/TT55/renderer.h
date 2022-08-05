@@ -118,14 +118,8 @@ namespace TT55::Renderer {
         glUniform1f(u_scale_location, u_scale);
 
         
-        vaos[0].Bind();
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-        vaos[0].Unbind();
-        
-        vaos[1].Bind();
-        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-        vaos[1].Unbind();
-        
+        vaos[0].Draw(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+        vaos[1].Draw(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
 
     }
 
