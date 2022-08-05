@@ -1,4 +1,4 @@
-
+# src/TT55/Shader/Shader.cpp
 SRC_FILES 	:=  src/TT55/EBO/EBO.cpp src/TT55/VBO/VBO.cpp src/TT55/VAO/VAO.cpp out/libs/glad.o src/main.cpp
 OUT_FILE	:= -o out/main
 INCLUDE 	:= -Iinclude/
