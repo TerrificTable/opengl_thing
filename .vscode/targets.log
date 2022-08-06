@@ -1,12 +1,15 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # GNU Make 4.3
+ 
 # Built for x86_64-pc-linux-gnu
+ 
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
+ 
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Aug  5 22:08:28 2022
+# Make data base, printed on Sat Aug  6 20:56:58 2022
 
 # Variables
 
@@ -79,7 +82,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 2258
+VSCODE_PID = 1793
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -225,7 +228,7 @@ LC_IDENTIFICATION = en_AG
 
 # Directories
 
-# . (device 41, inode 48795): 12 files, no impossibilities.
+# . (device 39, inode 48795): 12 files, no impossibilities.
 
 # 12 files, no impossibilities in 1 directories.
 
@@ -238,7 +241,7 @@ LC_IDENTIFICATION = en_AG
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-05 22:08:24.598080366
+#  Last modified 2022-08-06 20:56:53.757985837
 #  File has been updated.
 #  Successfully updated.
 
@@ -326,6 +329,6 @@ build:
 # strcache performance: lookups = 32 / hit rate = 37%
 # hash-table stats:
 # Load=20/8192=0%, Rehash=0, Collisions=0/32=0%
-# Finished Make data base on Fri Aug  5 22:08:28 2022
+# Finished Make data base on Sat Aug  6 20:56:58 2022
 
  
