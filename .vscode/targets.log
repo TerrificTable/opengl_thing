@@ -1,15 +1,13 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # GNU Make 4.3
- 
 # Built for x86_64-pc-linux-gnu
- 
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
- 
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Aug  6 20:56:58 2022
+ 
+# Make data base, printed on Sat Aug  6 22:12:21 2022
 
 # Variables
 
@@ -101,7 +99,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 <D = $(patsubst %/,%,$(dir $<))
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
-# makefile (from 'Makefile', line 4)
+# makefile (from 'Makefile', line 3)
 INCLUDE := -Iinclude/
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
@@ -137,6 +135,7 @@ LC_TELEPHONE = en_AG
 ?F = $(notdir $?)
 # environment
 GTK_CSD = 1
+ 
 # environment
 XDG_SEAT = seat0
 # environment
@@ -167,7 +166,7 @@ GTK_MODULES = canberra-gtk-module
 USER = terrific
 # default
 MAKE_VERSION := 4.3
-# makefile (from 'Makefile', line 2)
+# makefile (from 'Makefile', line 1)
 SRC_FILES := src/TT55/Shader/Shader.cpp src/TT55/EBO/EBO.cpp src/TT55/VBO/VBO.cpp src/TT55/VAO/VAO.cpp out/libs/glad.o src/main.cpp
 # environment
 LC_MEASUREMENT = en_AG
@@ -175,7 +174,7 @@ LC_MEASUREMENT = en_AG
 _ = /usr/bin/make
 # environment
 LC_PAPER = en_AG
-# makefile (from 'Makefile', line 3)
+# makefile (from 'Makefile', line 2)
 OUT_FILE := -o out/main
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
@@ -211,7 +210,7 @@ XDG_CACHE_HOME = /home/terrific/.cache
 VSCODE_CLI = 1
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
-# makefile (from 'Makefile', line 7)
+# makefile (from 'Makefile', line 6)
 LINKS := lib/libglfw3.a -lGL -lX11 -lpthread -lXrandr -lXi -ldl
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink guile load
@@ -230,6 +229,7 @@ LC_IDENTIFICATION = en_AG
 
 # . (device 39, inode 48795): 12 files, no impossibilities.
 
+ 
 # 12 files, no impossibilities in 1 directories.
 
 # Implicit Rules
@@ -237,11 +237,12 @@ LC_IDENTIFICATION = en_AG
 # No implicit rules.
 
 # Files
+ 
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-06 20:56:53.757985837
+#  Last modified 2022-08-06 22:07:57.311874599
 #  File has been updated.
 #  Successfully updated.
 
@@ -255,7 +256,7 @@ glad_comp:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 20):
+#  recipe to execute (from 'Makefile', line 19):
 	g++ $(INCLUDE) -c include/glad/glad.c -o out/libs/glad.o
 
 all: build run
@@ -271,7 +272,7 @@ run:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 23):
+#  recipe to execute (from 'Makefile', line 22):
 	@echo " [ Run ] "
 	@./out/main
 	@echo " [ Run ] "
@@ -298,11 +299,13 @@ build:
 # ^ := 
 # automatic
 # ? := 
+ 
 # automatic
 # | := 
 # variable set hash-table stats:
+ 
 # Load=8/32=25%, Rehash=0, Collisions=1/15=7%
-#  recipe to execute (from 'Makefile', line 14):
+#  recipe to execute (from 'Makefile', line 13):
 	@echo " [ Building ] "
 	g++ $(INCLUDE) $(SRC_FILES) $(OUT_FILE) $(LINKS)
 	@echo " [ Building ] "
@@ -329,6 +332,6 @@ build:
 # strcache performance: lookups = 32 / hit rate = 37%
 # hash-table stats:
 # Load=20/8192=0%, Rehash=0, Collisions=0/32=0%
-# Finished Make data base on Sat Aug  6 20:56:58 2022
+# Finished Make data base on Sat Aug  6 22:12:21 2022
 
  

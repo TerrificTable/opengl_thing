@@ -38,7 +38,7 @@ namespace TT55::Renderer {
     void render(GLFWwindow*, Shader, VAO[]);
 
 
-    void renderLoop(TT55::Window_s Window) {
+    void renderLoop(TT55::window_s Window) {
     
         GLFWwindow* window = Window.window;
 
@@ -70,14 +70,14 @@ namespace TT55::Renderer {
 
 
 
+        VAO vaos[] = {
+            vao, vao_1
+        };
+
         while (!glfwWindowShouldClose(window)) {
             // Input
             TT55::Listeners::processInputListener(window);
 
-
-            VAO vaos[] = {
-                vao, vao_1
-            };
 
             // === RENDERING === //
             render(window, TT55::Window.shader, vaos);
@@ -85,7 +85,7 @@ namespace TT55::Renderer {
 
 
             // check and call events and swap buffers
-            glfwPollEvents(); // poll window eventsx
+            glfwPollEvents(); // poll window events
             glfwSwapBuffers(window); // swap frame buffers
 	    }
 
@@ -100,8 +100,6 @@ namespace TT55::Renderer {
     }
 
     void render(GLFWwindow* window, Shader shader, VAO vaos[]) {
-
-        TT55::Window.wireframe_toggle_time++;
 
 
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);

@@ -7,19 +7,20 @@ namespace TT55::Listeners {
             glfwSetWindowShouldClose(window, true);
 
         if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
-            static int timeout = 10;
+            static int timeout = 6;
+            static int current = 0;
 
-            if (TT55::Window.wireframe_toggle_time > timeout) {
+            if (current > timeout) {
                 if (!TT55::Window.wireframe) {
                     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
                     std::cout << "Wireframe -> on" << std::endl;
                     TT55::Window.wireframe = true;
-                    TT55::Window.wireframe_toggle_time = 0;
+                    current = 0;
                 } else {
                     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
                     std::cout << "Wireframe -> off" << std::endl;
                     TT55::Window.wireframe = false;
-                    TT55::Window.wireframe_toggle_time = 0;
+                    current = 0;
                 }
             }
         }

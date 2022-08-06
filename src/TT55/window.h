@@ -1,7 +1,7 @@
 namespace TT55 {
 
     // Window_s struct, contains some information about the window
-    struct Window_s {
+    struct window_s {
         GLFWwindow* window;
         
         int width;
@@ -11,12 +11,11 @@ namespace TT55 {
 
 
         bool wireframe;
-        unsigned int wireframe_toggle_time;
     } Window;
 
 
     // Create GLFWwindow
-    GLFWwindow *createWindow(Window_s WINDOW) {
+    GLFWwindow *createWindow(window_s WINDOW) {
 
         // Create the window
         GLFWwindow* window = glfwCreateWindow(WINDOW.width, WINDOW.height, WINDOW.name, NULL, NULL);
