@@ -1,5 +1,3 @@
-#define SHADER_DEBUG
-
 #include "Shader.h"
 
 
@@ -12,22 +10,27 @@ Shader::Shader(std::string vertex_src, std::string fragment_src) {
     init();
 
 }
+Shader::Shader() {}
 
 
 void Shader::readShadersFromFile(std::string vertex_shader_src_path, std::string fragment_shader_src_path) {
 
-    vertex_shader_src = readFile(vertex_shader_src_path.c_str()).c_str();
-    fragment_shader_src = readFile(fragment_shader_src_path.c_str()).c_str();
+    vertex_shader_src = readFile(vertex_shader_src_path.c_str());
+    fragment_shader_src = readFile(fragment_shader_src_path.c_str());
 
 }
 
 void Shader::init() {
-    
+#ifdef SHADER_DEBUG
+    std::cout << vertex_shader_src << std::endl;
+#endif
+
     int success;
     char infoLog[512];
 
     vertexID = glCreateShader(GL_VERTEX_SHADER);
-    glShaderSource(vertexID, 1, &vertex_shader_src, NULL);
+    const char* vertex_shader_src_cstr = vertex_shader_src.c_str();
+    glShaderSource(vertexID, 1, &vertex_shader_src_cstr, NULL);
     glCompileShader(vertexID);
 
     glGetShaderiv(vertexID, GL_COMPILE_STATUS, &success);
@@ -41,7 +44,8 @@ void Shader::init() {
 
     // Compile Fragment Shader
     fragmentID = glCreateShader(GL_FRAGMENT_SHADER);
-    glShaderSource(fragmentID, 1, &fragment_shader_src, NULL);
+    const char* fragment_shader_src_cstr = fragment_shader_src.c_str();
+    glShaderSource(fragmentID, 1, &fragment_shader_src_cstr, NULL);
     glCompileShader(fragmentID);
 
     glGetShaderiv(fragmentID, GL_COMPILE_STATUS, &success);
@@ -91,16 +95,22 @@ std::string readFile(const char* filename) {
     std::string shader_src_file_contents; 
     std::fstream file;
 
-    file.open(filename);
-    if (file.is_open()) {
-        std::string tp;
-        while (getline(file, tp)) {
-            shader_src_file_contents += tp;
-            shader_src_file_contents += "\n";
-        }
+    file.exceptions (std::ifstream::failbit | std::ifstream::badbit);
+
+    try {
+
+        file.open(filename);
+        std::stringstream file_stringstream;
+
+        file_stringstream << file.rdbuf();
+
         file.close();
+
+        shader_src_file_contents = file_stringstream.str();
+
+    } catch(std::ifstream::failure e) {
+        std::cout << "File " << filename << " could not be read" << std::endl;
     }
-    shader_src_file_contents += "\0";
 
 #ifdef SHADER_DEBUG
     std::cout << "ShaderFile: " << shader_src_file_contents << std::endl;

@@ -35,7 +35,7 @@ namespace TT55::Renderer {
 
 
 
-    void render(GLFWwindow*, int, VAO[]);
+    void render(GLFWwindow*, Shader, VAO[]);
 
 
     void renderLoop(TT55::Window_s Window) {
@@ -80,7 +80,7 @@ namespace TT55::Renderer {
             };
 
             // === RENDERING === //
-            render(window, TT55::Window.programID, vaos);
+            render(window, TT55::Window.shader, vaos);
             // === RENDERING === //
 
 
@@ -99,7 +99,7 @@ namespace TT55::Renderer {
 
     }
 
-    void render(GLFWwindow* window, int programID, VAO vaos[]) {
+    void render(GLFWwindow* window, Shader shader, VAO vaos[]) {
 
         TT55::Window.wireframe_toggle_time++;
 
@@ -109,14 +109,17 @@ namespace TT55::Renderer {
 
 
 
-        glUseProgram(programID);
+        glUseProgram(shader.programID);
         float u_time = glfwGetTime();
         float u_scale = 0.5f;
-        int u_time_location = glGetUniformLocation(programID, "u_time");
-        int u_scale_location = glGetUniformLocation(programID, "u_scale");
+        int u_time_location = glGetUniformLocation(shader.programID, "u_time");
+        int u_scale_location = glGetUniformLocation(shader.programID, "u_scale");
         glUniform1f(u_time_location, u_time);
         glUniform1f(u_scale_location, u_scale);
 
+        
+        // for(int i=0; i < sizeof(&vaos) / sizeof(vaos[0]); i++)
+        //     vaos[i].Draw(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
         
         vaos[0].Draw(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
         vaos[1].Draw(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);

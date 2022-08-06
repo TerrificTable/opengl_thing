@@ -7,7 +7,7 @@ namespace TT55 {
         int width;
         int height;
         const char* name;
-        unsigned int programID;
+        Shader shader;
 
 
         bool wireframe;

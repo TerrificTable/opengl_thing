@@ -8,9 +8,8 @@
 #include "GLFW/glfw3.h"
 
 
+#include "TT55/Shader/Shader.h"
 #include "TT55/window.h"
-// #define SHADER_DEBUG
-#include "TT55/shader.h"
 #include "TT55/listeners.h"
 #include "TT55/renderer.h"
 // #define CALLBACK_DEBUG
@@ -60,8 +59,8 @@ int main()
 	// Set Viewport to size of window
 	glViewport(0, 0, TT55::Window.width, TT55::Window.height);
 
-	int programID = TT55::Shader::compile_link();
-	TT55::Window.programID = programID;
+	Shader shader("src/shaders/default.vert", "src/shaders/default.frag");
+	TT55::Window.shader = shader;
 	
 	// callbacks
 	glfwSetFramebufferSizeCallback(window, 	TT55::Callbacks::window_resize_callback); // set resize callback

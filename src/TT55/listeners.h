@@ -29,7 +29,7 @@ namespace TT55::Listeners {
             static int current = 0;
 
             if (current > timeout) {
-                TT55::Window.programID = TT55::Shader::compile_link();
+                TT55::Window.shader = Shader("src/shaders/default.vert", "src/shaders/default.frag");
                 std::cout << "Reloaded Shaders" << std::endl;
                 current = 0;
             } else current++;
