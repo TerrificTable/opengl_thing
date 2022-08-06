@@ -6,8 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
- 
-# Make data base, printed on Sat Aug  6 22:12:21 2022
+# Make data base, printed on Sat Aug  6 22:48:59 2022
 
 # Variables
 
@@ -80,7 +79,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 1793
+VSCODE_PID = 2867
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -135,7 +134,6 @@ LC_TELEPHONE = en_AG
 ?F = $(notdir $?)
 # environment
 GTK_CSD = 1
- 
 # environment
 XDG_SEAT = seat0
 # environment
@@ -227,9 +225,8 @@ LC_IDENTIFICATION = en_AG
 
 # Directories
 
-# . (device 39, inode 48795): 12 files, no impossibilities.
+# . (device 40, inode 48795): 12 files, no impossibilities.
 
- 
 # 12 files, no impossibilities in 1 directories.
 
 # Implicit Rules
@@ -237,7 +234,6 @@ LC_IDENTIFICATION = en_AG
 # No implicit rules.
 
 # Files
- 
 
 # Not a target:
 Makefile:
@@ -299,11 +295,9 @@ build:
 # ^ := 
 # automatic
 # ? := 
- 
 # automatic
 # | := 
 # variable set hash-table stats:
- 
 # Load=8/32=25%, Rehash=0, Collisions=1/15=7%
 #  recipe to execute (from 'Makefile', line 13):
 	@echo " [ Building ] "
@@ -332,6 +326,6 @@ build:
 # strcache performance: lookups = 32 / hit rate = 37%
 # hash-table stats:
 # Load=20/8192=0%, Rehash=0, Collisions=0/32=0%
-# Finished Make data base on Sat Aug  6 22:12:21 2022
+# Finished Make data base on Sat Aug  6 22:48:59 2022
 
  

@@ -38,7 +38,7 @@ int main()
 #endif
 
 
-	// set `Window_s WINDOW` parameters
+	// set `window_s Window` parameters
 	TT55::Window.wireframe 	= false;
 	TT55::Window.width 		= 800;
 	TT55::Window.height 	= 600;
