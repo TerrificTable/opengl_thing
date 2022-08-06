@@ -6,7 +6,7 @@ namespace TT55::Listeners {
         if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
             glfwSetWindowShouldClose(window, true);
 
-        if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+        if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS && glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS) {
             static int timeout = 6;
             static int current = 0;
 
@@ -22,10 +22,10 @@ namespace TT55::Listeners {
                     TT55::Window.wireframe = false;
                     current = 0;
                 }
-            }
+            } else current++;
         }
 
-        if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS) {
+        if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS && glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS) {
             static int timeout = 6;
             static int current = 0;
 

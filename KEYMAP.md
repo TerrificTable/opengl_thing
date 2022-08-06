@@ -1,5 +1,5 @@
-| Key   | What it does                  |
-|-------|-------------------------------|
-| `W`   | Toggles Wireframe mode        |
-| `R`   | Reload / recompile shaders    |
-| `ESC` | Exit                          |
+| Mod    | Key   | What it does                  |
+|--------|-------|-------------------------------|
+| `CTRL` | `W`   | Toggles Wireframe mode        |
+| `CTRL` | `R`   | Reload / recompile shaders    |
+| ``     | `ESC` | Exit                          |
