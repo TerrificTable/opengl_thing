@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Aug  7 17:48:16 2022
+# Make data base, printed on Mon Aug  8 09:09:33 2022
 
 # Variables
 
@@ -64,6 +64,8 @@ CURDIR := /home/terrific/Desktop/opengl_thing
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
+# makefile (from 'Makefile', line 1)
+TO_COMPILE := src/TT55/Shader/Shader.cpp src/TT55/EBO/EBO.cpp src/TT55/VBO/VBO.cpp src/TT55/VAO/VAO.cpp
 # environment
 MFLAGS = -pqrR
 # default
@@ -79,7 +81,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 2178
+VSCODE_PID = 3274
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -98,7 +100,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 <D = $(patsubst %/,%,$(dir $<))
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-gb","availableLanguages":{},"_languagePackSupport":true}
-# makefile (from 'Makefile', line 3)
+# makefile (from 'Makefile', line 4)
 INCLUDE := -Iinclude/
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
@@ -164,15 +166,15 @@ GTK_MODULES = canberra-gtk-module
 USER = terrific
 # default
 MAKE_VERSION := 4.3
-# makefile (from 'Makefile', line 1)
-SRC_FILES := src/TT55/Shape/Shapes.cpp src/TT55/Shader/Shader.cpp src/TT55/EBO/EBO.cpp src/TT55/VBO/VBO.cpp src/TT55/VAO/VAO.cpp out/libs/glad.o src/main.cpp
+# makefile (from 'Makefile', line 2)
+SRC_FILES := out/comp/* src/TT55/Shape/Shapes.cpp  out/libs/glad.o src/main.cpp
 # environment
 LC_MEASUREMENT = en_AG
 # environment
 _ = /usr/bin/make
 # environment
 LC_PAPER = en_AG
-# makefile (from 'Makefile', line 2)
+# makefile (from 'Makefile', line 3)
 OUT_FILE := -o out/main
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
@@ -208,7 +210,7 @@ XDG_CACHE_HOME = /home/terrific/.cache
 VSCODE_CLI = 1
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
-# makefile (from 'Makefile', line 6)
+# makefile (from 'Makefile', line 7)
 LINKS := lib/libglfw3.a -lGL -lX11 -lpthread -lXrandr -lXi -ldl
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink guile load
@@ -217,7 +219,7 @@ XDG_MENU_PREFIX = lxqt-
 # environment
 LC_IDENTIFICATION = en_AG
 # variable set hash-table stats:
-# Load=103/1024=10%, Rehash=0, Collisions=8/140=6%
+# Load=104/1024=10%, Rehash=0, Collisions=8/141=6%
 
 # Pattern-specific Variable Values
 
@@ -225,9 +227,9 @@ LC_IDENTIFICATION = en_AG
 
 # Directories
 
-# . (device 39, inode 48795): 12 files, no impossibilities.
+# . (device 39, inode 48795): 13 files, no impossibilities.
 
-# 12 files, no impossibilities in 1 directories.
+# 13 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -238,7 +240,7 @@ LC_IDENTIFICATION = en_AG
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-07 17:48:01.964755671
+#  Last modified 2022-08-07 18:59:19.023710924
 #  File has been updated.
 #  Successfully updated.
 
@@ -252,7 +254,7 @@ glad_comp:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 19):
+#  recipe to execute (from 'Makefile', line 24):
 	g++ $(INCLUDE) -c include/glad/glad.c -o out/libs/glad.o
 
 all: build run
@@ -268,7 +270,7 @@ run:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 22):
+#  recipe to execute (from 'Makefile', line 27):
 	@echo " [ Run ] "
 	@./out/main
 	@echo " [ Run ] "
@@ -299,7 +301,7 @@ build:
 # | := 
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/15=7%
-#  recipe to execute (from 'Makefile', line 13):
+#  recipe to execute (from 'Makefile', line 14):
 	@echo " [ Building ] "
 	g++ $(INCLUDE) $(SRC_FILES) $(OUT_FILE) $(LINKS)
 	@echo " [ Building ] "
@@ -312,20 +314,28 @@ build:
 #  Modification time never checked.
 #  File has not been updated.
 
+comp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 20):
+	g++ $(INCLUDE) -c $(TO_COMPILE)
+	@mv *.o out/comp
+
 # files hash-table stats:
-# Load=7/1024=1%, Rehash=0, Collisions=0/23=0%
+# Load=8/1024=1%, Rehash=0, Collisions=0/24=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 20 / storage = 153 B / avg = 7 B
-# current buf: size = 8162 B / used = 153 B / count = 20 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 22 / storage = 163 B / avg = 7 B
+# current buf: size = 8162 B / used = 163 B / count = 22 / avg = 7 B
 
-# strcache performance: lookups = 32 / hit rate = 37%
+# strcache performance: lookups = 35 / hit rate = 37%
 # hash-table stats:
-# Load=20/8192=0%, Rehash=0, Collisions=0/32=0%
-# Finished Make data base on Sun Aug  7 17:48:16 2022
+# Load=22/8192=0%, Rehash=0, Collisions=0/35=0%
+# Finished Make data base on Mon Aug  8 09:09:33 2022
 
  

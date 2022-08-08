@@ -2,6 +2,8 @@
 #include "../../VBO/VBO.h"
 #include "../../EBO/EBO.h"
 
+#include "../../Shader/Shader.h"
+
 
 class Triangle {
 
@@ -14,6 +16,7 @@ public:
     Triangle(float bottom_left[], float bottom_right[], float top[]);
 
     void Delete();
+    void Draw(Shader shader);
     void Draw();
 
 };

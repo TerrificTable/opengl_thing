@@ -6,6 +6,7 @@
 #include "Shape/shapes/triangle.h"
 #include "Shape/shapes/rectangle.h"
 
+
 namespace TT55::Renderer {
 
 
@@ -27,6 +28,7 @@ namespace TT55::Renderer {
         float t_br[] = {  0.25f - 0.5f, -0.25f, 0.0f,     0.0f, 1.0f, 0.0f };
         float t_t[]  = {  0.0f  - 0.5f,  0.25f, 0.0f,     0.0f, 0.0f, 1.0f };
         Triangle triangle(t_bl, t_br, t_t);
+        Shader t_shader("src/shaders/default.vert", "src/shaders/t_default.frag");
 
 
         VAO vaos[] = {};
@@ -40,7 +42,7 @@ namespace TT55::Renderer {
             render(window, TT55::Window.shader, vaos);
 
             rectangle.Draw();
-            triangle.Draw();
+            triangle.Draw(t_shader);
             // === RENDERING === //
 
 
@@ -62,14 +64,10 @@ namespace TT55::Renderer {
 
 
 
-        glUseProgram(shader.programID);
-        float u_time = glfwGetTime();
-        float u_scale = 0.5f;
-        int u_time_location = glGetUniformLocation(shader.programID, "u_time");
-        int u_scale_location = glGetUniformLocation(shader.programID, "u_scale");
-        glUniform1f(u_time_location, u_time);
-        glUniform1f(u_scale_location, u_scale);
-
+        shader.use();
+        shader.setFloat("u_time", glfwGetTime());
+        shader.setFloat("u_scale", 0.5f);
+        
         
         // vaos[0].Draw(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
         // vaos[1].Draw(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);

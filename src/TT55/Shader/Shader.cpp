@@ -12,7 +12,6 @@ Shader::Shader(std::string vertex_src, std::string fragment_src) {
 }
 Shader::Shader() {}
 
-
 void Shader::readShadersFromFile(std::string vertex_shader_src_path, std::string fragment_shader_src_path) {
 
     vertex_shader_src = readFile(vertex_shader_src_path.c_str());
@@ -22,7 +21,7 @@ void Shader::readShadersFromFile(std::string vertex_shader_src_path, std::string
 
 void Shader::init() {
 #ifdef SHADER_DEBUG
-    std::cout << vertex_shader_src << std::endl;
+    std::cout << fragment_shader_src << std::endl;
 #endif
 
     int success;

@@ -1,6 +1,11 @@
+#include "glad/glad.h"
+#include <GLFW/glfw3.h>
+
 #include "../VAO/VAO.h"
 #include "../VBO/VBO.h"
 #include "../EBO/EBO.h"
+
+#include "../Shader/Shader.h"
 
 #include "shapes/triangle.h"
 #include "shapes/rectangle.h"
@@ -37,15 +42,19 @@ Triangle::Triangle(float bottom_left[], float bottom_right[], float top[]) {
     vbo = ivbo;
     ebo = iebo;
 }
-void Triangle::Draw() {
+void Triangle::Draw(Shader shader) {
+    shader.use();
+    shader.setFloat("u_time", glfwGetTime());
     vao.Draw(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
 };
+void Triangle::Draw() {
+    vao.Draw(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
+}
 void Triangle::Delete() {
     vao.Delete();
     vbo.Delete();
     ebo.Delete();
 }
-
 
 
 
@@ -82,6 +91,11 @@ Rectangle::Rectangle(float top_left[], float top_right[], float bottom_left[], f
     vao = ivao;
     vbo = ivbo;
     ebo = iebo;
+}
+void Rectangle::Draw(Shader shader) {
+    shader.use();
+    shader.setFloat("u_time", glfwGetTime());
+    vao.Draw(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
 void Rectangle::Draw() {
     vao.Draw(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
